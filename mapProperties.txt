@@ -1,0 +1,28 @@
+map drag and move -> save new map center
+
+backend returns -> new marker lat/long to frontend
+
+point of interest:
+marker name, lat, long
+
+
+dl.map available_properties:
+
+['children', 'id', 'animate', 
+'attribution', 
+'attributionControl', 'bounceAtZoomLimits', 'bounds', 
+'boundsOptions', 'boxZoom', 
+'center', 'className', 
+'click_lat_lng', 'closePopupOnClick', 
+'crs', 'dbl_click_lat_lng', 'doubleClickZoom', 'dragging', 
+'duration', 'easeLinearity', 'fadeAnimation', 'inertia', 'inertiaDeceleration', 'inertiaMaxSpeed', 'keyboard', 'keyboardPanDelta', 'location_lat_lon_acc', 'markerZoomAnimation', 'maxBounds', 'maxBoundsViscosity', 'maxZoom', 'minZoom', 'noMoveStart', 'preferCanvas', 'renderer', 'scrollWheelZoom', 'style', 'tap', 'tapTolerance', 'touchZoom', 'trackResize', 'transform3DLimit', 'useFlyTo', 'viewport', 'wheelDebounceTime', 'wheelPxPerZoomLevel', 'worldCopyJump', 'zoom', 'zoomAnimation', 'zoomAnimationThreshold', 'zoomControl', 'zoomDelta', 'zoomSnap']
+
+tile layers available properties:
+
+'children', 'id', 'attribution', 'bounds', 'className', 'crossOrigin', 'detectRetina', 'errorTileUrl', 'keepBuffer', 'maxNativeZoom', 'maxZoom', 'minNativeZoom', 'minZoom', 'noWrap', 'opacity', 'pane', 'subdomains', 'tileSize', 'tms', 'updateInterval', 'updateWhenIdle', 'updateWhenZooming', 'url', 'zIndex', 'zoomOffset', 'zoomReverse']
+
+layer group available properties:
+
+'children', 'id', 'attribution', 'className'
+
+
