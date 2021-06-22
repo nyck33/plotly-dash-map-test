@@ -60,6 +60,7 @@ app.layout = html.Div([
     html.Div(id="click_coord")
     ], style={'width': '1000px', 'height': '500px'})
 
+'''
 @app.callback([Output("coordinates", "children"),
                Output("click_coord", "children")],
               Input("map", "click_lat_lng"),
@@ -108,12 +109,45 @@ def show_coordinates(click_loc, bounds, center, viewport, maxBounds, dragging, m
     ])
 
     return visible_div, click_coord
-
-
 '''
-def capital_click(feature):
-    if feature is not None:
-        return f"You clicked {feature['properties']['name']}"
-'''
+
+@app.callback(Output("coordinates", "children"),
+              Input("map", "center"),
+              [State("map", "bounds"),
+              State("layer-group", "children")])
+def show_coordinates(center, bounds, markers):
+    if center == [34, -92]:
+        return "-"
+    #iterate markers list of dicts to get positions and if within bounds display
+    visible_coords_arr = []
+    bounds_a, bounds_b = bounds
+    #todo: bottom right and top left?
+    # long is negative so reversed low and hi
+    lat_low, long_low = bounds_a
+    lat_hi, long_hi = bounds_b
+    for marker in markers:
+        data = marker['props']
+        pos = data['position']
+        lat, long = pos
+        if (lat_low <= lat <= lat_hi) and (long_low <= long <= long_hi):
+            # get capital
+            #capital = capitals_d[(str(lat), str(long))]
+            if len(sys.argv) > 1:
+                capital = capitals_d[(lat,long)]
+            else:
+                capital = ''.join(random.choice(string.ascii_letters) for _ in range(8))
+            visible_coords_arr.append(capital + ": " + str(lat) + " " + str(long))
+
+    if len(visible_coords_arr) <= 0:
+        return "-"
+    #make a div
+    visible_div = html.Div([
+        html.P(
+            c
+        ) for c in visible_coords_arr
+    ])
+
+    return visible_div
+
 if __name__ == '__main__':
     app.run_server(debug=True)

@@ -34,7 +34,7 @@ or
 ### or 
 ### http://localhost:8050/
 
-### 4. Please click-drag and/or zoom the map and click somewhere on the map area.
+### 4. Please click-drag and/or zoom the map to see the coordinates of the visible markers.
 
 # Sources:
 
